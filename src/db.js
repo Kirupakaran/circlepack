@@ -15,6 +15,20 @@ async function getData() {
     return data;
 }
 
+async function insertData(keys, values) {
+    const cs = new pgp.helpers.ColumnSet(keys, {table: 'shipments_data'});
+    const query = pgp.helpers.insert(values, cs);
+    
+    try {
+        const result = await db.result(query);
+        return result.rowCount;
+    } catch (e) {
+        console.error(e);
+        throw e;
+    }
+}
+
 module.exports = {
-    getData
+    getData,
+    insertData
 }

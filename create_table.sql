@@ -3,7 +3,7 @@ CREATE TABLE shipments_data(
     shipment_id INTEGER,
     source_id VARCHAR(10),
     destination_id VARCHAR(10),
-    date BIGINT,
+    date VARCHAR(10),
     weight INTEGER,
     cost INTEGER,
     new_shipment_id INTEGER,

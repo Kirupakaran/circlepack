@@ -11,3 +11,15 @@ CREATE TABLE shipments_data(
     new_cost INTEGER,
     total_tls INTEGER
 );
+
+CREATE TABLE config(
+    id SERIAL,
+    table_name VARCHAR(20),
+    master_circle VARCHAR(20),
+    parent_circle VARCHAR(20),
+    children_circle VARCHAR(20),
+    parent_size VARCHAR(20),
+    children_size VARCHAR(20),
+    parent_tooltip VARCHAR(20),
+    children_tooltip VARCHAR(20)
+);

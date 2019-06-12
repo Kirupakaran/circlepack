@@ -7,19 +7,22 @@
     "start": "node src/server.js",
     "start-dev-client": "webpack-dev-server",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Kirupakaran Harikrishnan",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
+    "chai": "^4.2.0",
     "d3": "^5.9.2",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "mocha": "^6.1.4",
     "multer": "^1.4.1",
     "pg-promise": "^8.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

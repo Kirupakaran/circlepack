@@ -1,0 +1,17 @@
+version: "3"
+services:
+  postgres:
+    build: ./database/
+    restart: always
+    ports:
+      - "5432:5432"
+  node:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    environment:
+      DB_CONNECTION_URI: postgres://postgres@postgres:5432/postgres 

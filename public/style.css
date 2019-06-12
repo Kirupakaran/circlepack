@@ -1,0 +1,22 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.forms {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 5%;
+    width: 80%;
+}
+
+.config-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart {
+    margin: 0 auto;
+}

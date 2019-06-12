@@ -1,19 +1,6 @@
 import React from "react";
 import * as d3 from "d3";
 
-/* props: {
-    data: {
-        master: {
-            parent: [{
-                value,
-                size,
-                children: [{}]
-            }]
-        }
-    },
-    height,
-    width
-} */
 class Chart extends React.Component {
     constructor(props) {
         super(props);

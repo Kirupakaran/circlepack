@@ -6,7 +6,13 @@ const db = pgp(uri);
 
 async function getData() {
     return db.task(async t => {
-        const config = await t.one('SELECT * FROM config');
+        let config = null;
+        try {
+            config = await t.one('SELECT * FROM config');
+        } catch (e) {
+            console.error(e);
+        }
+
         if (config != null) {
             const data = await t.any('SELECT $1:name, $2:name, $3:name, $4:name, $5:name, $6:name, $7:name FROM $8:name', [
                 config.master_circle,
@@ -20,7 +26,7 @@ async function getData() {
             ]);
 
             return { config: config, values: data }
-        } else return [];
+        } else return null;
     });
 }
 

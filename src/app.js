@@ -13,11 +13,15 @@ app.use(express.static(__dirname + '/../public'));
 
 app.get('/shipments', async (req, res) => {
     const data = await db.getData();
-    const transformedData = util.transformData(data);
-    res.send(transformedData);
+    if (data && data.values.length != 0) {
+        const transformedData = util.transformData(data);
+        res.send(transformedData);
+    } else {
+        res.send({});
+    }
 });
 
-app.post('/config/upload', upload.single('config'), async (req, res, next) => {
+app.post('/config/upload', upload.single('file'), async (req, res, next) => {
     try {
         const config = util.processConfigFile(req.file.path);
         const rowCount = await db.insertData('config', Object.keys(config), [config]);
@@ -27,7 +31,7 @@ app.post('/config/upload', upload.single('config'), async (req, res, next) => {
     }
 });
 
-app.post('/shipments/upload', upload.single('shipments'), async (req, res) => {
+app.post('/shipments/upload', upload.single('file'), async (req, res) => {
     try {
         const data = util.processShipmentsFile(req.file.path);
         const rowCount = await db.insertData('shipments_data', data.keys, data.values);
